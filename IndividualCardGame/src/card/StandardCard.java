@@ -44,6 +44,27 @@ public class StandardCard extends Card{
     }
 
     /**
+     * Method that returns an integer value for the rank of the card
+     * @return an integer value
+     */
+    public int getRankValue() {
+        int currentRank = 11;
+        String[] numberRanks = { "2","3", "4", "5", "6", "7", "8", "9", "10"};
+        String[] royalRanks = {"Jack", "Queen", "King"};
+        for (int i = 0; i < numberRanks.length ; i++) {
+            if (getRank().contains(numberRanks[i])) {
+                currentRank = Integer.parseInt(getRank());
+            }
+        }
+        for (int i = 0; i <royalRanks.length ; i++) {
+            if(getRank().contains(royalRanks[i])) {
+                currentRank = 10;
+            }
+        }
+        return currentRank;
+    }
+
+    /**
      * A string representation of a standard card
      * @return The rank and suit
      */
